@@ -279,10 +279,41 @@ public class Utils {
         return  retorno ;
 
     }
-    public  static BufferedImage zoom(BufferedImage imageOriginal,int valor, int X , int Y){
+    public  static BufferedImage zoom(BufferedImage imageOriginal,int valor) {
+        return  zoom(imageOriginal,valor, imageOriginal.getWidth()/2,imageOriginal.getWidth()/2);
+    }
+
+        public  static BufferedImage zoom(BufferedImage imageOriginal,int valor, int X , int Y){
 
         BufferedImage retorno = new BufferedImage(imageOriginal.getWidth(),imageOriginal.getHeight(),TYPE_INT_RGB);
+        int  zoomX = imageOriginal.getWidth() /valor;
+        int  zoomY = imageOriginal.getHeight() /valor;
 
+        int X1 = Y-zoomX/2;
+        int Y1 = X-zoomX/2;
+        for (int i = X1 ; i < X+zoomX ; i++){
+            for (int j = Y1 ; j < Y+zoomY ; j++){
+
+                Color colorAux1 = new Color(imageOriginal.getRGB(i, j));
+
+                for (int i1 = 0; i1<valor ;i1++ ){
+                    for (int j1 = 0; j1<valor ;j1++ ){
+                        int r = colorAux1.getRed();
+                        int g = colorAux1.getGreen();
+                        int b = colorAux1.getBlue();
+                        int valx =Math.min(((i-X1)*valor)+i1,imageOriginal.getWidth()-1);
+                        int valy =Math.min(((j-Y1)*valor)+j1,imageOriginal.getHeight()-1);
+
+                        retorno.setRGB(valx,valy,(r << 16) | (g << 8) | b);
+
+                    }
+
+
+                }
+
+            }
+
+        }
         return  retorno ;
 
     }

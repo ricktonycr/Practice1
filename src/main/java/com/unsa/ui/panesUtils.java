@@ -25,4 +25,15 @@ public class panesUtils {
         img32.repaint();
 
     }
+
+    public static void setZoom(JPanel image31, JPanel image32 , int valor) {
+        ImageSelector img31 = (ImageSelector) image31;
+        ImageSelector img32 = (ImageSelector) image32;
+        BufferedImage imgtemp = Utils.zoom(img31.image,valor);
+        img32.image=imgtemp;
+        img32.repaint();
+
+    }
+
+
 }

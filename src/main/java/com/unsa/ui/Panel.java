@@ -10,8 +10,8 @@
         import java.awt.*;
 
 public class Panel {
-    private static final int DEFAULT_WITH = 1000;
-    private static final int DEFAULT_HEIGHT = 800;
+    private static final int DEFAULT_WITH = 800;
+    private static final int DEFAULT_HEIGHT = 600;
     private JTabbedPane zoom;
     public JPanel panel1;
     private JComboBox comboBox1;
@@ -31,8 +31,8 @@ public class Panel {
     private JPanel image41;
     private JPanel image42;
     private JButton MOSTRARButton;
-    private JTextField zoomTextY;
     private JTextField zoomTextValue;
+    private JTextField zoomTextY;
     private JTextField zoomTextX;
 
     private void createUIComponents() {
@@ -94,6 +94,16 @@ public class Panel {
                 int  filtro = Integer.parseInt(textFieldMediana.getText().toString());
                 panesUtils.setImage(image31,image32);
                 panesUtils.setImageMediana(image31,image32,filtro);
+
+            }
+        });
+        MOSTRARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("aras");
+                int  filtro = Integer.parseInt(zoomTextValue.getText().toString());
+                panesUtils.setImage(image41,image42);
+                panesUtils.setZoom(image41,image42,filtro);
 
             }
         });
