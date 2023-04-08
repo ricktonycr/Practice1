@@ -1,17 +1,18 @@
-package com.unsa.ui;
 
-import com.unsa.data.ComboValues;
-import com.unsa.logic.Utils;
+        package com.unsa.ui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+        import com.unsa.data.ComboValues;
+        import com.unsa.logic.Utils;
+
+        import java.awt.event.ActionListener;
+        import javax.swing.*;
+        import java.awt.event.ActionEvent;
+        import java.awt.*;
 
 public class Panel {
     private static final int DEFAULT_WITH = 1000;
     private static final int DEFAULT_HEIGHT = 800;
-    private JTabbedPane tabbedPane1;
+    private JTabbedPane zoom;
     public JPanel panel1;
     private JComboBox comboBox1;
     private JPanel image11;
@@ -22,6 +23,17 @@ public class Panel {
     private JPanel image22;
     private JButton button21;
     private JTextPane textPane21;
+    private  JButton jButtonMedia;
+    private  JPanel Mediana;
+    private JPanel image31;
+    private JPanel image32;
+    private JTextField textFieldMediana;
+    private JPanel image41;
+    private JPanel image42;
+    private JButton MOSTRARButton;
+    private JTextField zoomTextY;
+    private JTextField zoomTextValue;
+    private JTextField zoomTextX;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
@@ -46,15 +58,49 @@ public class Panel {
                 "0.1;0.1;0.1\n" +
                 "0.1;0.1;0.1");
         Utils.setPane(textPane21);
+
+
+        image31 = new ImageSelector(true,4);
+        image31.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
+        image32 = new ImageSelector(false,5);
+        image32.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
+
+
+        image41 = new ImageSelector(true,4);
+        image41.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
+        image42 = new ImageSelector(false,5);
+        image42.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
+
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Panel");
         //frame.setIconImage();
-        frame.setContentPane(new Panel().panel1);
+        Panel mainPanel  = new Panel();
+        mainPanel.updateButton();
+        frame.setContentPane(mainPanel.panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
         frame.setVisible(true);
         frame.setMinimumSize(new Dimension(DEFAULT_WITH, DEFAULT_HEIGHT));
     }
+
+    private  void updateButton() {
+        jButtonMedia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("aras");
+                int  filtro = Integer.parseInt(textFieldMediana.getText().toString());
+                panesUtils.setImage(image31,image32);
+                panesUtils.setImageMediana(image31,image32,filtro);
+
+            }
+        });
+
+    }
 }
+
+
+
+

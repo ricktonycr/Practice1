@@ -14,7 +14,7 @@ import javax.swing.JFileChooser;
 
 
 public class ImageSelector extends JPanel implements MouseListener {
-    private BufferedImage image;
+    public BufferedImage image;
     private boolean isInput;
     private int id;
 

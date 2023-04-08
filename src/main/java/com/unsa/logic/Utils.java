@@ -232,4 +232,61 @@ public class Utils {
             return null;
         }
     }
+
+
+    public  static BufferedImage mediana(BufferedImage imageOriginal,int conv){
+
+        BufferedImage retorno = new BufferedImage(imageOriginal.getWidth(),imageOriginal.getHeight(),TYPE_INT_RGB);
+            Double values[][] = new Double[conv][conv];
+
+            for (int i = 0; i < conv; i++){
+                for (int j = 0; j < conv; j++){
+                    values[i][j] = 1.0/(conv*conv);
+
+                }
+            }
+            Color colorAux1;
+            int centerX = conv/2;
+        int centerY = conv/2;
+
+        for ( int i = 0; i < retorno.getWidth(); i++){
+                for (int j = 0; j < retorno.getHeight(); j++){
+                    Double r = 0.0;
+                    Double g = 0.0;
+                    Double b = 0.0;
+                    for (int m = 0; m < values.length; m++){
+                        for (int n = 0; n < values[m].length; n++){
+                            double kernelFactor = values[m][n];
+                            int x = i + (m - centerX);
+                            int y = j + (n - centerY);
+                            if (x > 0 && x < retorno.getWidth() && y > 0 && y < imageOriginal.getHeight())
+                                colorAux1 = new Color(imageOriginal.getRGB(x, y));
+                            else
+                                colorAux1 = new Color(0,0,0);
+                            r += colorAux1.getRed()*kernelFactor;
+                            g += colorAux1.getGreen()*kernelFactor;
+                            b += colorAux1.getBlue()*kernelFactor;
+                        }
+                    }
+
+                    int ri = (int) Math.min( r, 255);
+                    int gi = (int) Math.min( g,255);
+                    int bi = (int) Math.min( b,255);
+                    retorno.setRGB(i,j,(ri << 16) | (gi << 8) | bi);
+                }
+            }
+
+        return  retorno ;
+
+    }
+    public  static BufferedImage zoom(BufferedImage imageOriginal,int valor, int X , int Y){
+
+        BufferedImage retorno = new BufferedImage(imageOriginal.getWidth(),imageOriginal.getHeight(),TYPE_INT_RGB);
+
+        return  retorno ;
+
+    }
+
+
+
 }
