@@ -1,3 +1,7 @@
+## Compilar y ejecutar
+Ingresar en la carpeta y ejecutar "maven install".
+Luego ejecutar el jar generado: "target/Practice1-1.0-SNAPSHOT-jar-with-dependencies.jar"
+
 ## Operaciones aritméticas
 
 Primero hacer click en el recuadro superior izquierdo y elegir una imagen.
