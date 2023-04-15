@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13135e59-f146-4ac9-a936-08cd2397243f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unsa/logic/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unsa/logic/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unsa/ui/Panel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unsa/ui/Panel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unsa/ui/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unsa/ui/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unsa/ui/panesUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unsa/ui/panesUtils.java" afterDir="false" />
-    </list>
+    <list default="true" id="a9ea326e-6a96-4881-b8ed-73006130f030" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,19 +20,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2O7JjTmUwLqblS6sLiIMBEK0mPR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="Panel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.unsa.ui.Panel" />
