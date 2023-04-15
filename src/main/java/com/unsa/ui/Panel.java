@@ -9,107 +9,219 @@
         import java.awt.event.ActionEvent;
         import java.awt.*;
 
-public class Panel {
-    private static final int DEFAULT_WITH = 800;
-    private static final int DEFAULT_HEIGHT = 600;
-    private JTabbedPane zoom;
-    public JPanel panel1;
-    private JComboBox comboBox1;
-    private JPanel image11;
-    private JPanel image12;
-    private JPanel image13;
-    private JTextField textField11;
-    private JPanel image21;
-    private JPanel image22;
-    private JButton button21;
-    private JTextPane textPane21;
-    private  JButton jButtonMedia;
-    private  JPanel Mediana;
-    private JPanel image31;
-    private JPanel image32;
-    private JTextField textFieldMediana;
-    private JPanel image41;
-    private JPanel image42;
-    private JButton MOSTRARButton;
-    private JTextField zoomTextValue;
-    private JTextField zoomTextY;
-    private JTextField zoomTextX;
+        public class Panel {
+            private static final int DEFAULT_WITH = 800;
+            private static final int DEFAULT_HEIGHT = 600;
+            private JTabbedPane zoom;
+            public JPanel panel1;
+            private JComboBox comboBox1;
+            private JPanel image11;
+            private JPanel image12;
+            private JPanel image13;
+            private JTextField textField11;
+            private JPanel image21;
+            private JPanel image22;
+            private JButton button21;
+            private JTextPane textPane21;
+            private JButton jButtonMedia;
+            private JPanel Mediana;
+            private JPanel image31;
+            private JPanel image32;
+            private JTextField textFieldMediana;
+            private JPanel image41;
+            private JPanel image42;
+            private JButton MOSTRARButton;
+            private JTextField zoomTextValue;
+            private JTextField zoomTextY;
+            private JTextField zoomTextX;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-        image11 = new ImageSelector(true,1);
-        image11.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        image12 = new ImageSelector(true,2);
-        image12.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        image13 = new ImageSelector(false,3);
-        image13.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        comboBox1 = new JComboBox(ComboValues.values());
-        Utils.setComboOperaciones(comboBox1);
-        textField11 = new JTextField();
-        Utils.setFactor(textField11);
+            private void createUIComponents() {
+                // TODO: place custom component creation code here
+                image11 = new ImageSelector(true, 1);
+                image11.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                image12 = new ImageSelector(true, 2);
+                image12.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                image13 = new ImageSelector(false, 3);
+                image13.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                comboBox1 = new JComboBox(ComboValues.values());
+                Utils.setComboOperaciones(comboBox1);
+                textField11 = new JTextField();
+                Utils.setFactor(textField11);
 
-        // Convolucional
-        image21 = new ImageSelector(true,4);
-        image21.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        image22 = new ImageSelector(false,5);
-        image22.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        textPane21 = new JTextPane();
-        textPane21.setText("0.1;0.1;0.1\n" +
-                "0.1;0.1;0.1\n" +
-                "0.1;0.1;0.1");
-        Utils.setPane(textPane21);
-
-
-        image31 = new ImageSelector(true,4);
-        image31.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        image32 = new ImageSelector(false,5);
-        image32.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
+                // Convolucional
+                image21 = new ImageSelector(true, 4);
+                image21.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                image22 = new ImageSelector(false, 5);
+                image22.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                textPane21 = new JTextPane();
+                textPane21.setText("0.1;0.1;0.1\n" +
+                        "0.1;0.1;0.1\n" +
+                        "0.1;0.1;0.1");
+                Utils.setPane(textPane21);
 
 
-        image41 = new ImageSelector(true,4);
-        image41.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
-        image42 = new ImageSelector(false,5);
-        image42.setMinimumSize(new Dimension(DEFAULT_WITH/2, DEFAULT_HEIGHT/2));
+                image31 = new ImageSelector(true, 4);
+                image31.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                image32 = new ImageSelector(false, 5);
+                image32.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
 
-    }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Panel");
-        //frame.setIconImage();
-        Panel mainPanel  = new Panel();
-        mainPanel.updateButton();
-        frame.setContentPane(mainPanel.panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-
-        frame.setVisible(true);
-        frame.setMinimumSize(new Dimension(DEFAULT_WITH, DEFAULT_HEIGHT));
-    }
-
-    private  void updateButton() {
-        jButtonMedia.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("aras");
-                int  filtro = Integer.parseInt(textFieldMediana.getText().toString());
-                panesUtils.setImage(image31,image32);
-                panesUtils.setImageMediana(image31,image32,filtro);
+                image41 = new ImageSelector(true, 4);
+                image41.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
+                image42 = new ImageSelector(false, 5);
+                image42.setMinimumSize(new Dimension(DEFAULT_WITH / 2, DEFAULT_HEIGHT / 2));
 
             }
-        });
-        MOSTRARButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("aras");
-                int  filtro = Integer.parseInt(zoomTextValue.getText().toString());
-                panesUtils.setImage(image41,image42);
-                panesUtils.setZoom(image41,image42,filtro);
+
+            public static void main(String[] args) {
+                JFrame frame = new JFrame("Panel");
+                //frame.setIconImage();
+                Panel mainPanel = new Panel();
+                mainPanel.updateButton();
+                frame.setContentPane(mainPanel.panel1);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+
+                frame.setVisible(true);
+                frame.setMinimumSize(new Dimension(DEFAULT_WITH, DEFAULT_HEIGHT));
+            }
+
+            private void updateButton() {
+                jButtonMedia.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("aras");
+                        int filtro = Integer.parseInt(textFieldMediana.getText().toString());
+                        panesUtils.setImage(image31, image32);
+                        panesUtils.setImageMediana(image31, image32, filtro);
+
+                    }
+                });
+                MOSTRARButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("aras");
+                        int filtro = Integer.parseInt(zoomTextValue.getText().toString());
+                        panesUtils.setImage(image41, image42);
+                        panesUtils.setZoom(image41, image42, filtro);
+
+                    }
+                });
 
             }
-        });
 
-    }
-}
+            {
+                // GUI initializer generated by IntelliJ IDEA GUI Designer
+                // >>> IMPORTANT!! <<<
+                // DO NOT EDIT OR ADD ANY CODE HERE!
+                $$$setupUI$$$();
+            }
+
+            /**
+             * Method generated by IntelliJ IDEA GUI Designer
+             * >>> IMPORTANT!! <<<
+             * DO NOT edit this method OR call it in your code!
+             *
+             * @noinspection ALL
+             */
+            private void $$$setupUI$$$() {
+                createUIComponents();
+                panel1 = new JPanel();
+                panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+                zoom = new JTabbedPane();
+                panel1.add(zoom, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(200, 200), null, 0, false));
+                final JPanel panel2 = new JPanel();
+                panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
+                zoom.addTab("Operaciones aritméticas", panel2);
+                panel2.add(image11, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                panel2.add(image12, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                final JPanel panel3 = new JPanel();
+                panel3.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+                panel2.add(panel3, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                panel3.add(comboBox1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                textField11.setToolTipText("a");
+                panel3.add(textField11, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+                panel2.add(image13, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                final JPanel panel4 = new JPanel();
+                panel4.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
+                zoom.addTab("Convolucional", panel4);
+                panel4.add(image21, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                panel4.add(image22, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                final JPanel panel5 = new JPanel();
+                panel5.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+                panel4.add(panel5, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                final JLabel label1 = new JLabel();
+                label1.setText("Agregar el kernel separado por ; y \\n");
+                panel5.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                final JPanel panel6 = new JPanel();
+                panel6.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+                panel4.add(panel6, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                panel6.add(textPane21, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+                Mediana = new JPanel();
+                Mediana.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 2, new Insets(0, 0, 0, 0), -1, -1));
+                zoom.addTab("Mediana", Mediana);
+                Mediana.add(image31, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(24, 256), null, 0, false));
+                image32.setBackground(new Color(-1312513));
+                Mediana.add(image32, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(24, 256), null, 0, false));
+                final JPanel panel7 = new JPanel();
+                panel7.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+                Mediana.add(panel7, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 1, false));
+                textFieldMediana = new JTextField();
+                panel7.add(textFieldMediana, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+                jButtonMedia = new JButton();
+                jButtonMedia.setLabel("Ejecutar");
+                jButtonMedia.setText("Ejecutar");
+                panel7.add(jButtonMedia, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                final JPanel panel8 = new JPanel();
+                panel8.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 2, new Insets(0, 0, 0, 0), -1, -1));
+                zoom.addTab("Zoom", panel8);
+                final JPanel panel9 = new JPanel();
+                panel9.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
+                panel8.add(panel9, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                final JPanel panel10 = new JPanel();
+                panel10.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+                panel9.add(panel10, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                zoomTextX = new JTextField();
+                zoomTextX.setVisible(false);
+                panel10.add(zoomTextX, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+                final JLabel label2 = new JLabel();
+                label2.setText("X");
+                label2.setVisible(false);
+                panel10.add(label2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                final JPanel panel11 = new JPanel();
+                panel11.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
+                panel9.add(panel11, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                zoomTextValue = new JTextField();
+                zoomTextValue.setText("");
+                panel11.add(zoomTextValue, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+                final JLabel label3 = new JLabel();
+                label3.setText("ZOOM");
+                panel11.add(label3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                final JPanel panel12 = new JPanel();
+                panel12.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+                panel9.add(panel12, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                zoomTextY = new JTextField();
+                zoomTextY.setOpaque(true);
+                zoomTextY.setVisible(false);
+                panel12.add(zoomTextY, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+                final JLabel label4 = new JLabel();
+                label4.setText("Y");
+                label4.setVisible(false);
+                panel12.add(label4, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                panel8.add(image41, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                panel8.add(image42, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                MOSTRARButton = new JButton();
+                MOSTRARButton.setText("MOSTRAR");
+                panel8.add(MOSTRARButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+            }
+
+            /**
+             * @noinspection ALL
+             */
+            public JComponent $$$getRootComponent$$$() {
+                return panel1;
+            }
+        }
 
 
 
