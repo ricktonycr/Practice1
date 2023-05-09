@@ -5,6 +5,7 @@ import com.unsa.data.ComboValues;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.Objects;
 
 import static java.awt.image.BufferedImage.TYPE_INT_RGB;
@@ -20,6 +21,9 @@ public class Utils {
     private static JTextField a;
     private static JTextPane pane;
 
+    private static BufferedImage imgInputMedia;
+    private static BufferedImage imgOutMedia;
+
     public static void loadImage(BufferedImage image, int id){
         switch (id){
             case 1:
@@ -28,6 +32,8 @@ public class Utils {
                 image2 = image;
             case 4:
                 image4 = image;
+            case 6:
+                imgInputMedia = image;
         }
     }
 
@@ -229,6 +235,105 @@ public class Utils {
             return image5;
         }else{
             JOptionPane.showMessageDialog(null, "Debe ingresar una imagen y un kernel correcto.");
+            return null;
+        }
+    }
+    public static int mediana(int [] arr, int cont){
+        Arrays.sort(arr);
+        int dif = arr.length -cont;
+        if (dif%2!=0) {
+            return arr[(arr.length-dif)/2+dif];
+        }else{
+            return (arr[(arr.length-dif)/2+dif-1]+arr[(arr.length-dif)/2+dif])/2;
+        }
+    }
+    public static BufferedImage filtroMediana() {
+        Color auxColor;
+        int[] prom_r = new int[9];
+        int[] prom_g = new int[9];
+        int[] prom_b = new int[9];
+        int cont;
+
+        int r,g,b;
+        if(imgInputMedia!=null){
+            imgOutMedia = new BufferedImage(imgInputMedia.getWidth(),imgInputMedia.getHeight(),TYPE_INT_RGB);
+            for (int i = 0; i < imgOutMedia.getWidth(); i++) {
+                for (int j = 0; j < imgOutMedia.getHeight(); j++) {
+
+                    cont =0;
+                    if (i-1 >=0 && i-1<imgOutMedia.getWidth() && j-1>=0 && j-1<imgOutMedia.getHeight()){
+                        auxColor = new Color(imgInputMedia.getRGB(i-1,j-1));
+                        prom_r[cont]= auxColor.getRed();
+                        prom_g[cont]= auxColor.getGreen();
+                        prom_b[cont]= auxColor.getBlue();
+                        cont++;
+                    }
+                    if ( j-1>=0 && j-1<imgOutMedia.getHeight()){
+                        auxColor = new Color(imgInputMedia.getRGB(i,j-1));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+                    if (i+1 >=0 && i+1<imgOutMedia.getWidth() && j-1>=0 && j-1<imgOutMedia.getHeight()){
+                        auxColor = new Color(imgInputMedia.getRGB(i+1,j-1));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+                    if (i+1 >=0 && i+1<imgOutMedia.getWidth() ){
+                        auxColor = new Color(imgInputMedia.getRGB(i+1,j));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+                    if (i+1 >=0 && i+1<imgOutMedia.getWidth() && j+1>=0 && j+1<imgOutMedia.getHeight()){
+                        auxColor = new Color(imgInputMedia.getRGB(i+1,j+1));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+                    if ( j+1>=0 && j+1<imgOutMedia.getHeight()){
+                        auxColor = new Color(imgInputMedia.getRGB(i,j+1));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+                    if (i-1 >=0 && i-1<imgOutMedia.getWidth() && j+1>=0 && j+1<imgOutMedia.getHeight()){
+                        auxColor = new Color(imgInputMedia.getRGB(i-1,j+1));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+                    if (i-1 >=0 && i-1<imgOutMedia.getWidth()){
+                        auxColor = new Color(imgInputMedia.getRGB(i-1,j));
+                        prom_r[cont] = auxColor.getRed();
+                        prom_g[cont] = auxColor.getGreen();
+                        prom_b[cont] = auxColor.getBlue();
+                        cont++;
+                    }
+
+                    auxColor = new Color(imgInputMedia.getRGB(i,j));
+                    prom_r[cont] = auxColor.getRed();
+                    prom_g[cont] = auxColor.getGreen();
+                    prom_b[cont] = auxColor.getBlue();
+                    cont++;
+
+                    r = mediana(prom_r,cont);
+                    g = mediana(prom_g,cont);
+                    b = mediana(prom_b,cont);
+
+                    imgOutMedia.setRGB(i,j,(r << 16) | (g << 8) | b);
+                }
+            }
+            return imgOutMedia;
+        }else{
+            JOptionPane.showMessageDialog(null,"Debe ingresar una imagen para realizar el filtrado mediana.");
             return null;
         }
     }

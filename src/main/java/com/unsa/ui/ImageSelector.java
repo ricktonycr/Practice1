@@ -62,6 +62,9 @@ public class ImageSelector extends JPanel implements MouseListener {
                 this.image = Utils.aritmeticOperations();
             if(this.id == 5)
                 this.image = Utils.convolucional();
+            if(this.id == 7)
+                this.image = Utils.filtroMediana();
+
             this.repaint();
         }
     }

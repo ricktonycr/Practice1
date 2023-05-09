@@ -22,6 +22,8 @@ public class Panel {
     private JPanel image22;
     private JButton button21;
     private JTextPane textPane21;
+    private JPanel imgInputMedia;
+    private JPanel imgOutputMedia;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
@@ -46,6 +48,13 @@ public class Panel {
                 "0.1;0.1;0.1\n" +
                 "0.1;0.1;0.1");
         Utils.setPane(textPane21);
+
+        // FiltradoMediana
+        imgInputMedia = new ImageSelector(true,6);
+        imgInputMedia.setMinimumSize(new Dimension(DEFAULT_WITH/2,DEFAULT_HEIGHT/2));
+
+        imgOutputMedia = new ImageSelector(false, 7);
+        imgOutputMedia.setMinimumSize(new Dimension(DEFAULT_WITH/2,DEFAULT_HEIGHT/2));
     }
 
     public static void main(String[] args) {
