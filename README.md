@@ -34,6 +34,11 @@ Primero hacer click en el recuadro superior izquierdo y elegir una imagen.
 Ingresar el valor del filtro y presionar el botón "Ejecutar" para visualizar el resultado.
 ![img_8.png](images%2Fimg_8.png)
 
+El filtro de la mediana nos ayuda a corregir imagenes con efectos de sal y pimienta.
+![img_10.png](images%2Fimg_10.png)
+
+![img_11.png](images%2Fimg_11.png)
+
 ## Zoom
 Primero hacer click en el recuadro superior derecho y elegir una imagen.
 ![img.png](img.png)
